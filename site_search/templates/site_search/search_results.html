@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Search Results</h1>
+    </div>
+    <div class="search-results">
+        <ul class="list-unstyled">
+            {% include "site_search/includes/search_items.html" %}
+        </ul>
+    </div>
+{% endblock %}

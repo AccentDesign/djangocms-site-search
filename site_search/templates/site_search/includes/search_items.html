@@ -1,0 +1,20 @@
+{% load i18n %}
+
+{% if object_list %}
+    <li>{% trans "Search results found for" %} "{{ request.GET.q }}"</li>
+    {% for result in object_list %}
+    <li>
+        <h4><a href="{{ result.url }}">{{ result.title }}</a></h4>
+        {% if result.search_text %}
+            <p>{{ result.search_text|linebreaks|truncatechars_html:400 }}</p>
+        {% endif %}
+        {% if result.description %}
+            <p><small>{% trans 'Description: ' %}{{ result.description }}</small></p>
+        {% endif %}
+        <a href="{{ result.url }}">{% blocktrans %}Go to page >>{% endblocktrans %}</a>
+        <hr/>
+    </li>
+    {% endfor %}
+{% else %}
+    <li>{% trans "No results found for" %} "{{ request.GET.q }}"</li>
+{% endif %}
