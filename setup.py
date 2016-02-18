@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='djangocms-site-search',
-    version='0.0.5',
+    version='0.0.6',
     description='Django model based search for Django CMS',
     long_description=open('README.rst').read(),
     author='Stuart George',
@@ -16,6 +16,7 @@ setup(
         'django-cms>=3.0',
     ],
     include_package_data=True,
+    keywords = ['django', 'cms', 'search'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
