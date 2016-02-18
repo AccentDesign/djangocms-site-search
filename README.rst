@@ -49,6 +49,12 @@ Add the url routes to the project in urls.py::
         url(r'^', include('site_search.urls', 'search')),
     ]
 
+You can turn off pagination by setting::
+
+    SITE_SEARCH_PAGINATION = None
+
+Or change its default number of 10 to something else.
+
 
 License
 =======
