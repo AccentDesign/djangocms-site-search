@@ -12,7 +12,7 @@ urlpatterns = patterns(
     url(r'^search/',
         include('site_search.urls', 'search')),
 
-    url(r'^',
+    url(r'',
         include('cms.urls')),
 
 )
