@@ -11,8 +11,6 @@ just to act as a search endpoint like solr etc.
 
 Doing it this way by saving the results in the database makes it extremely portable.
 
-Its early days in the project and needs nore work such as unit testing, pagination etc.
-
 
 Installation
 ============
@@ -22,7 +20,7 @@ Installation with ``pip``::
 
 
 Get Going
-=====
+=========
 On publishing a page, an index item is added to the model.
 On unpublishing or deleting its removed. Simple!
 
