@@ -15,6 +15,7 @@ class SearchResultsView(FormMixin, ListView):
     form_class = SearchForm
     model = Index
     template_name = 'site_search/search_results.html'
+
     paginate_by = settings.SITE_SEARCH_PAGINATION
 
     def get(self, request, *args, **kwargs):
@@ -24,13 +25,15 @@ class SearchResultsView(FormMixin, ListView):
 
     def get_queryset(self):
         queryset = super(SearchResultsView, self).get_queryset()
-        q = self.request.GET.get('q', '')
+        search = self.request.GET.get('q', '').strip()
+        if search == '':
+            return []
         if not self.request.user.is_authenticated():
             queryset = queryset.exclude(login_required=True)
         language = get_language_from_request(self.request, check_path=True)
         site = get_current_site(self.request)
         queryset = queryset.filter(
-            Q(search_text__icontains=q) | Q(title__icontains=q),
+            Q(search_text__icontains=search) | Q(title__icontains=search),
             Q(language=language) & Q(site__pk=site.id),
             Q(pub_date__lte=datetime.now()) | Q(pub_date__isnull=True))
         return queryset

@@ -10,7 +10,7 @@ def clean_join(separator, iterable):
     return separator.join(filter(None, iterable))
 
 
-def get_cleaned_bits(data):
+def get_cleaned_text(data):
     decoded = force_unicode(data)
     stripped = striptags(decoded)
     return smart_split(stripped)
