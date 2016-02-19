@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from datetime import datetime
-from django.conf import settings
 from django.contrib.sites.shortcuts import get_current_site
 from django.db.models import Q
 from django.utils.translation import get_language_from_request
 from django.views.generic import ListView
 from django.views.generic.edit import FormMixin
 
+from .conf import settings
 from .forms import SearchForm
 from .models import Index
 

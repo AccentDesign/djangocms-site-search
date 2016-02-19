@@ -160,7 +160,7 @@ TEMPLATES = [
 # CMS
 CMS_PERMISSION = True
 CMS_TEMPLATES = (
-    ('cms/layouts/full_width_1_col.html',
+    ('cms/layouts/fullwidth.html',
      _('Full Width One Column')),
 )
 

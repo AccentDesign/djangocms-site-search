@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from django.conf import settings
 from django.db.models import Q
 
 from cms.models.pluginmodel import CMSPlugin
 
+from ..conf import settings
 from ..helpers import get_plugin_index_data
 from ..utils import clean_join
 

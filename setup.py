@@ -12,8 +12,8 @@ setup(
     license='MIT',
     packages=find_packages(exclude=('example',)),
     install_requires=[
-        'Django>=1.87,<1.9',
-        'django-cms>=3.0',
+        'Django>=1.8',
+        'django-cms>3.0',
     ],
     include_package_data=True,
     keywords = ['django', 'cms', 'search'],

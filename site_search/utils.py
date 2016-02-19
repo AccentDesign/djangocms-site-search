@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.contrib.contenttypes.models import ContentType
 from django.template.defaultfilters import striptags
 from django.utils.text import smart_split

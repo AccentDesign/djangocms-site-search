@@ -1,10 +1,11 @@
-from django.conf import settings
+# -*- coding: utf-8 -*-
 from django.contrib.auth.models import AnonymousUser
 from django.db import models
 from django.template import Engine, RequestContext
 from django.test import RequestFactory
 from cms.toolbar.toolbar import CMSToolbar
 
+from .conf import settings
 from .utils import get_cleaned_text
 
 

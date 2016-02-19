@@ -1,5 +1,6 @@
 db.sqlite3
 .idea/
+.tox
 dist
 *.egg-info
 __pycache__

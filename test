@@ -1,0 +1,3 @@
+#!/bin/bash
+
+djangocms-helper djangocms_site_search --cms test --extra-settings=test_settings $@
