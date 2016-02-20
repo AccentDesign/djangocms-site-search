@@ -6,46 +6,92 @@
         <title>{% block title %}{% trans 'Example CMS Site' %}{% endblock %}</title>
         {% bootstrap_css %}
         {% render_block "css" %}
+        <link href="{% static 'css/site.css' %}" rel="stylesheet">
     </head>
     <body>
 
         {% cms_toolbar %}
 
         <div class="container">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Example</a>
+                        <a class="navbar-brand" href="/">Example</a>
                     </div>
-                    <div id="navbar" class="navbar-collapse collapse">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="/">Home</a></li>
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <a href="https://pypi.python.org/pypi/djangocms-site-search">PyPI</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/bigmassa/djangocms-site-search">GitHub</a>
+                            </li>
                         </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <form method="get" action="{% url 'search:search_results' %}" class="navbar-form pull-right" role="search">
-                                <div class="form-group">
-                                    <input type="text" name="q" class="form-control" placeholder="Search">
-                                </div>
-                                <button type="submit" class="btn btn-default">Search</button>
-                            </form>
-                        </ul>
-                    </div><!--/.nav-collapse -->
-                </div><!--/.container-fluid -->
+                    </div>
+                </div>
             </nav>
         </div>
 
         <div class="container">
-            {% block content %}{% endblock %}
+
+            <div class="row">
+
+                <div class="col-lg-9">
+
+                    {% block content %}{% endblock %}
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="well">
+                        <h4>Search</h4>
+                        <form method="get" action="{% url 'search:search_results' %}" role="search">
+                            <div class="form-group">
+                                <input type="text" name="q" class="form-control" placeholder="Search">
+                            </div>
+                            <button type="submit" class="btn btn-default">Search</button>
+                        </form>
+                    </div>
+
+                    <div class="well">
+                        <h4>Navigation</h4>
+                        <ul class="list-unstyled">{% show_menu %}</ul>
+                    </div>
+
+                    <div class="well">
+                        <h4>Help</h4>
+                        <p>Start creating pages, publishing them will make them appear in the search results.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; Your Website 2014</p>
+                    </div>
+                </div>
+            </footer>
+
         </div>
 
         {% bootstrap_javascript jquery=1 %}
         {% render_block "js" %}
+
     </body>
 
 </html>
