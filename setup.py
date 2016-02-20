@@ -12,11 +12,11 @@ setup(
     license='MIT',
     packages=find_packages(exclude=('example',)),
     install_requires=[
-        'Django>=1.8,<=1.9',
-        'django-cms>3.0',
+        'Django>=1.8,<1.10',
+        'django-cms>=3.1,<3.3',
     ],
     include_package_data=True,
-    keywords = ['django', 'cms', 'search'],
+    keywords = ['djangocms', 'django', 'cms', 'search', 'site'],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
