@@ -9,7 +9,7 @@ def gettext(s):
 HELPER_SETTINGS = {
     'TEMPLATE_DIRS': ('example/templates/cms/layouts/',),
     'CMS_TEMPLATES': (
-        ('fullwidth.html', 'Fullwidth'),
+        ('test.html', 'Fullwidth'),
     ),
     'ALLOWED_HOSTS': ['localhost'],
     'CMS_LANGUAGES': {1: [{'code': 'en', 'name': 'English'}]},
@@ -21,6 +21,31 @@ HELPER_SETTINGS = {
     },
     'PLACEHOLDERS_SEARCH_LIST': {
         '*': {},
+        'testpage': {
+            'include': ['body'],
+        },
+        'testpage1': {},
+        'testpage2': {
+            'exclude': ['body', 'hidden'],
+        },
+        'testpage3': {
+            'include': ['body'],
+            'exclude': ['hidden'],
+        },
+        'testpage4': {
+            'include': ['hidden'],
+            'exclude': ['body'],
+        },
+        'testpage5': {
+            'include': ['body', 'hidden'],
+        },
+        'testpage6': {
+            'include': ['hidden'],
+        },
+        'testpage7': {
+            'include': ['body', 'invalid'],
+            'exclude': ['hidden', 'invalid'],
+        }
     },
     'SITE_SEARCH_PAGINATION': 10,
 }

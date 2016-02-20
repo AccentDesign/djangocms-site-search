@@ -7,7 +7,7 @@ from .views import SearchResultsView
 urlpatterns = patterns(
     '',
 
-    url(r'^',
+    url(r'^$',
         SearchResultsView.as_view(),
         name='search_results'),
 

@@ -76,9 +76,7 @@ WSGI_APPLICATION = 'example.wsgi.application'
 
 # Search
 PLACEHOLDERS_SEARCH_LIST = {
-    '*': {
-        'exclude': ['heading', ],
-    }
+    '*': {},
 }
 
 
@@ -161,7 +159,7 @@ TEMPLATES = [
 CMS_PERMISSION = True
 CMS_TEMPLATES = (
     ('cms/layouts/fullwidth.html',
-     _('Full Width One Column')),
+     _('Full Width')),
 )
 
 

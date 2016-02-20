@@ -13,7 +13,7 @@ class IndexTestCase(TestCase):
         return create_page(
             title='test_page',
             reverse_id='testpage',
-            template='fullwidth.html',
+            template='test.html',
             language='en',
             **data
         )

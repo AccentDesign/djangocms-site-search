@@ -61,6 +61,7 @@ def get_plugin_index_data(base_plugin, request):
         for value in values:
             cleaned_bits = get_cleaned_text(value or '')
             searchable_text.extend(cleaned_bits)
+
     return searchable_text
 
 

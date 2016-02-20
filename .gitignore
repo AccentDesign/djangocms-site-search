@@ -1,8 +1,9 @@
-db.sqlite3
 .idea/
 .tox
-.coverage
 dist
+htmlcov
 *.egg-info
+.coverage
 __pycache__
 *.pyc
+db.sqlite3
