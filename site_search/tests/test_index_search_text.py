@@ -1,4 +1,4 @@
-from copy import deepcopy
+# -*- coding: utf-8 -*-
 import mock
 
 from django.conf import settings
@@ -237,14 +237,3 @@ class SearchTextTestCase(TestCase):
         indexed = Index.objects.all()[0]
         self.assertEqual('some plugin content some hidden content',
                          indexed.search_text)
-
-    setting_without_all = deepcopy(settings.PLACEHOLDERS_SEARCH_LIST)
-    del setting_without_all['*']
-
-    @mock.patch('django.conf.settings.PLACEHOLDERS_SEARCH_LIST',
-                setting_without_all)
-    def test_all_setting_mandatory(self):
-        page = self._create_page(reverse_id='')
-        add_plugin(page.placeholders.get(slot='body'), BasePlugin, 'en')
-        add_plugin(page.placeholders.get(slot='hidden'), HiddenPlugin, 'en')
-        self.assertRaises(AttributeError, page.publish, 'en')

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.test import TestCase
 from cms.api import create_page
 
@@ -74,32 +75,12 @@ class UtilsTestCase(TestCase):
     def test_remove_indexed_object(self):
         page = self._create_page()
         obj = page.publisher_public.get_title_obj('en')
-        data = {
-            'title': obj.title,
-            'url': obj.page.get_absolute_url(),
-            'pub_date': obj.page.publication_date,
-            'login_required': obj.page.login_required,
-            'site': obj.page.site,
-            'description': obj.meta_description,
-            'search_text': 'foo',
-            'language': 'en'
-        }
         remove_indexed_object(obj)
         self.assertEqual(Index.objects.count(), 0)
 
     def test_remove_indexed_object_doesnt_fail_if_not_there(self):
         page = self._create_page()
         obj = page.publisher_public.get_title_obj('en')
-        data = {
-            'title': obj.title,
-            'url': obj.page.get_absolute_url(),
-            'pub_date': obj.page.publication_date,
-            'login_required': obj.page.login_required,
-            'site': obj.page.site,
-            'description': obj.meta_description,
-            'search_text': 'foo',
-            'language': 'en'
-        }
         remove_indexed_object(obj)
         self.assertEqual(Index.objects.count(), 0)
         remove_indexed_object(obj)

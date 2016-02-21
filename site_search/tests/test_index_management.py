@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from datetime import datetime
 
 from django.contrib.contenttypes.models import ContentType
@@ -19,7 +20,7 @@ class IndexTestCase(TestCase):
         )
 
     def test_creating_a_page_is_not_added(self):
-        page = self._create_page()
+        self._create_page()
         self.assertEqual(Index.objects.count(), 0)
 
     def test_published_page_is_added(self):
