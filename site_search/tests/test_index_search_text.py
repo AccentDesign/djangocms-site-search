@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from copy import deepcopy
 import mock
 
 from django.conf import settings
@@ -237,3 +238,18 @@ class SearchTextTestCase(TestCase):
         indexed = Index.objects.all()[0]
         self.assertEqual('some plugin content some hidden content',
                          indexed.search_text)
+
+    new_search_list = deepcopy(settings.PLACEHOLDERS_SEARCH_LIST)
+    del new_search_list['*']
+
+    @mock.patch('django.conf.settings.PLACEHOLDERS_SEARCH_LIST',
+                new_search_list)
+    def test_missing_all_and_invalid_placeholder_raises_error(self):
+        page = self._create_page(reverse_id='foo')
+        add_plugin(page.placeholders.get(slot='body'), BasePlugin, 'en')
+        add_plugin(page.placeholders.get(slot='hidden'), HiddenPlugin, 'en')
+        try:
+            page.publish('en')
+            return False
+        except AttributeError:
+            return True

@@ -7,6 +7,10 @@ def gettext(s):
 
 
 HELPER_SETTINGS = {
+    'INSTALLED_APPS': ('site_search.tests',),
+    'MIGRATION_MODULES': {
+        'site_search.tests': 'site_search.tests.migrations'
+    },
     'TEMPLATE_DIRS': ('example/templates/cms/layouts/',),
     'CMS_TEMPLATES': (
         ('test.html', 'Fullwidth'),
