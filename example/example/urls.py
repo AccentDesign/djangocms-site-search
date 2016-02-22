@@ -12,12 +12,11 @@ urlpatterns = patterns(
     url(r'^search/',
         include('site_search.urls', 'search')),
 
-    url(r'',
+    url(r'^',
         include('cms.urls')),
 
 )
 
 if settings.DEBUG:
-    # media url for when dev storage
     urlpatterns += static.static(
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

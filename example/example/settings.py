@@ -34,8 +34,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # CMS
     'bootstrap3',
+
+    # CMS
     'djangocms_text_ckeditor',
     'cms',
     'treebeard',
@@ -43,10 +44,10 @@ INSTALLED_APPS = (
     'sekizai',
     'djangocms_file',
     'djangocms_inherit',
-    'djangocms_link',
     'djangocms_picture',
-    'djangocms_snippet',
     'djangocms_teaser',
+    'djangocms_link',
+    'djangocms_snippet',
 
     # Search
     'site_search',
@@ -85,14 +86,6 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}
-
-MIGRATION_MODULES = {
-    'djangocms_file': 'djangocms_file.migrations_django',
-    'djangocms_inherit': 'djangocms_inherit.migrations_django',
-    'djangocms_picture': 'djangocms_picture.migrations_django',
-    'djangocms_snippet': 'djangocms_snippet.migrations_django',
-    'djangocms_teaser': 'djangocms_teaser.migrations_django',
 }
 
 
