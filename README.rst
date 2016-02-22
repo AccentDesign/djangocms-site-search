@@ -1,9 +1,6 @@
 ========================================
 Django model based search for Django CMS
 ========================================
-
-A model based search app for Django CMS.
-
 The reason I created this was simply to avoid the overhead of using third party applications such as haystack.
 I was deploying an app on Amazons Elastic Beanstalk that will run on one or more instance and did not
 want the hassle of trying to save the index results in a centralized storage. I also did not want another instance
@@ -29,6 +26,11 @@ Take a look at the ones for the cms at https://github.com/bigmassa/djangocms-sit
 You just need to provide the data.
 
 There is a sample app included in the repo.
+
+
+Permissions
+===========
+Setting permissions on cms pages will filter the search results accordingly.
 
 
 Setup

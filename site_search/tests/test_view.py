@@ -55,14 +55,3 @@ class ViewTestCase(TestCase):
             publication_date=datetime.today() - timedelta(days=1))
         page.publish('en')
         self.assertEqual(len(self.view.get_queryset()), 1)
-
-    def test_view_excludes_login_required_when_user_anonymous(self):
-        page = self._create_page(login_required=True)
-        page.publish('en')
-        self.assertEqual(len(self.view.get_queryset()), 0)
-
-    def test_view_includes_login_required_when_user_logged_in(self):
-        self.view.request.user = self.user
-        page = self._create_page(login_required=True)
-        page.publish('en')
-        self.assertEqual(len(self.view.get_queryset()), 1)
