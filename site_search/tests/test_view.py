@@ -2,11 +2,21 @@
 from datetime import datetime, timedelta
 
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 from django.test import TestCase
+from django.test.utils import override_settings
 from cms.api import create_page
 
 from ..helpers import get_request
 from ..views import SearchResultsView
+
+
+class URLTestCase(TestCase):
+
+    @override_settings(ROOT_URLCONF='site_search.tests.test_urls')
+    def test_search_url_view(self):
+        response = self.client.get(reverse('search:search_results'))
+        self.assertEqual(response.status_code, 200)
 
 
 class ViewTestCase(TestCase):
