@@ -74,23 +74,6 @@ class SearchTextTestCase(TestCase):
             cms_plugin, self.request)
         self.assertEqual(BasePlugin.plugin_content, indexed_content)
 
-    def test_plugin_indexing_can_be_disabled_on_model(self):
-        cms_plugin = self.get_plugin()
-        cms_plugin.search_fulltext = False
-        indexed_content = self.index.get_plugin_search_text(
-            cms_plugin, self.request)
-        self.assertEqual('', indexed_content)
-
-    def test_plugin_indexing_can_be_disabled_on_plugin(self):
-        BasePlugin.search_fulltext = False
-        try:
-            cms_plugin = self.get_plugin()
-            indexed_content = self.index.get_plugin_search_text(
-                cms_plugin, self.request)
-            self.assertEqual('', indexed_content)
-        finally:
-            del BasePlugin.search_fulltext
-
     def _create_page(self, **data):
         data['reverse_id'] = data.get('reverse_id', 'testpage')
         return create_page(

@@ -35,16 +35,7 @@ def get_plugin_index_data(base_plugin, request):
 
     search_fields = getattr(instance, 'search_fields', [])
 
-    if hasattr(instance, 'search_fulltext'):
-        search_contents = instance.search_fulltext
-    elif hasattr(base_plugin, 'search_fulltext'):
-        search_contents = base_plugin.search_fulltext
-    elif hasattr(plugin_type, 'search_fulltext'):
-        search_contents = plugin_type.search_fulltext
-    else:
-        search_contents = not bool(search_fields)
-
-    if search_contents:
+    if not bool(search_fields):
         context = RequestContext(request)
         updates = {}
 
