@@ -1,6 +1,9 @@
 ========================================
 Django model based search for Django CMS
 ========================================
+
+|PyPI_Version| |Build_Status| |Coverage_Status|
+
 The reason I created this was simply to avoid the overhead of using third party applications such as haystack.
 I was deploying an app on Amazons Elastic Beanstalk that will run on one or more instance and did not
 want the hassle of trying to save the index results in a centralized storage. I also did not want another instance
@@ -59,3 +62,12 @@ Or change its default number of 10 to something else.
 License
 =======
 The project is licensed under the MIT license.
+
+
+
+.. |PyPI_Version| image:: http://img.shields.io/pypi/v/djangocms-site-search.svg
+   :target: https://pypi.python.org/pypi/djangocms-site-search
+.. |Build_Status| image:: http://img.shields.io/travis/bigmassa/djangocms-site-search/master.svg
+   :target: https://travis-ci.org/bigmassa/djangocms-site-search
+.. |Coverage_Status| image:: http://img.shields.io/coveralls/bigmassa/djangocms-site-search/master.svg
+   :target: https://coveralls.io/r/bigmassa/djangocms-site-search?branch=master
