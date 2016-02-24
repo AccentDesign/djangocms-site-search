@@ -11,7 +11,7 @@ from cms.models.placeholdermodel import Placeholder
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
-from ..helpers import get_request
+from ..helpers import get_plugin_index_data, get_request
 from ..indexers.cms_title import TitleIndexer
 from ..models import Index
 
@@ -222,11 +222,10 @@ class SearchTextTestCase(TestCase):
         self.assertEqual('some plugin content some hidden content',
                          indexed.search_text)
 
-    new_search_list = deepcopy(settings.PLACEHOLDERS_SEARCH_LIST)
-    del new_search_list['*']
+    search_list = deepcopy(settings.PLACEHOLDERS_SEARCH_LIST)
+    del search_list['*']
 
-    @mock.patch('django.conf.settings.PLACEHOLDERS_SEARCH_LIST',
-                new_search_list)
+    @mock.patch('django.conf.settings.PLACEHOLDERS_SEARCH_LIST', search_list)
     def test_missing_all_and_invalid_placeholder_raises_error(self):
         page = self._create_page(reverse_id='foo')
         add_plugin(page.placeholders.get(slot='body'), BasePlugin, 'en')
@@ -236,3 +235,11 @@ class SearchTextTestCase(TestCase):
             return False
         except AttributeError:
             return True
+
+    @mock.patch('cms.models.pluginmodel.CMSPlugin.get_plugin_instance')
+    def test_none_plugin_instance_returns_blank(self, mocked):
+        mocked.return_value = None, None
+        cms_plugin = self.get_plugin()
+        indexed_content = self.index.get_plugin_search_text(
+            cms_plugin, self.request)
+        self.assertEqual('', indexed_content)
