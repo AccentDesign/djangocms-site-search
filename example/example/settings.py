@@ -77,6 +77,9 @@ WSGI_APPLICATION = 'example.wsgi.application'
 # Search
 PLACEHOLDERS_SEARCH_LIST = {
     '*': {},
+    'only_show_body': {
+        'include': ['body'],
+    }
 }
 
 
