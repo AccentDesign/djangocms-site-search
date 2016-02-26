@@ -15,8 +15,10 @@ Doing it this way by saving the results in the database makes it extremely porta
 .. toctree::
    :maxdepth: 3
 
-   introduction/index
-   contribute
+   general/installation
+   general/setup
+   reference/index
+   general/contribute
 
 
 Indices and tables

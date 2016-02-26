@@ -1,6 +1,6 @@
-========================================
+****************************************
 Django model based search for Django CMS
-========================================
+****************************************
 
 |PyPI_Version| |Build_Status| |Coverage_Status|
 
@@ -12,32 +12,27 @@ just to act as a search endpoint like solr etc.
 Doing it this way by saving the results in the database makes it extremely portable.
 
 
+************
 Installation
-============
+************
+
 Installation with ``pip``::
 
     $ pip install djangocms-site-search
 
 
+*********
 Get Going
-=========
+*********
+
 On publishing a page, an index item is added to the model.
 On unpublishing or deleting its removed. Simple!
 
-You could even create more receivers to easily populate for non cms models.
-Take a look at the ones for the cms at https://github.com/bigmassa/djangocms-site-search/blob/master/site_search/receivers.py.
-You just need to provide the data.
 
-There is a sample app included in the repo.
-
-
-Permissions
-===========
-Setting permissions on cms pages will filter the search results accordingly.
-
-
+*****
 Setup
-=====
+*****
+
 Add the following apps to the ``INSTALLED_APPS`` ensuring its below cms::
 
     INSTALLED_APPS = (
@@ -52,15 +47,19 @@ Add the url routes to the project in urls.py::
         url(r'^', include('site_search.urls', 'search')),
     ]
 
-You can turn off pagination by setting::
 
-    SITE_SEARCH_PAGINATION = None
+*************
+Documentation
+*************
 
-Or change its default number of 10 to something else.
+Please head over to our `documentation <https://djangocms-site-search.readthedocs.org/>`_ for all
+the details on how to install and use the django CMS site search.
 
 
+*******
 License
-=======
+*******
+
 The project is licensed under the MIT license.
 
 

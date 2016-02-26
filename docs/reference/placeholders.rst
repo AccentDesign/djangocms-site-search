@@ -1,28 +1,17 @@
-##########
-Pagination
-##########
-
-You can turn off pagination by setting::
-
-    SITE_SEARCH_PAGINATION = None
-
-Or change its default number of 10 to something else.
-
-
 #################################
 Modifying Searchable Placeholders
 #################################
 
 By default all placeholders within the cms will be indexed for searching.
-This can be modified like so:
+This can be modified like so.
 
 Suppose your template had the following placeholders::
 
     {% placeholder body %}
     {% placeholder hidden %}
 
-the following will setting can be added so that when you add the
-*unique identifier* in the page advanced settings of *only_show_body*, anything
+the following setting can be added so that when you add the
+*unique identifier* in the cms page advanced settings of *only_show_body*, anything
 in the hidden placeholder will be ignored::
 
     PLACEHOLDERS_SEARCH_LIST = {
