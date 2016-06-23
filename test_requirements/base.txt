@@ -1,4 +1,7 @@
-mock
 coverage
+tox
+tox-pyenv
 djangocms-admin-style
 django-appconf
+mock
+nose

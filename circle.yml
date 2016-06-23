@@ -1,0 +1,24 @@
+machine:
+  python:
+    version: '2.7.9'
+  environment:
+    TOX_PYPY: 'pypy-2.5.0'
+    TOX_PY:   '2.7.9'
+    TOX_PY27: '2.7.10'
+    TOX_PY33: '3.3.3'
+    TOX_PY34: '3.4.3'
+
+dependencies:
+  pre:
+    - sudo apt-get install python-dev
+  override:
+    - pip -V
+    - pip install -U tox coveralls
+    - pyenv local $TOX_PY34 $TOX_PY33 $TOX_PY27 $TOX_PYPY
+
+test:
+  override:
+    - tox -v --recreate
+  post:
+    - cp -r htmlcov $CIRCLE_ARTIFACTS
+    - coveralls
