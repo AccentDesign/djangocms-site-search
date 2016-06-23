@@ -61,7 +61,7 @@ The project is licensed under the MIT license.
 
 .. |PyPI_Version| image:: http://img.shields.io/pypi/v/djangocms-site-search.svg
    :target: https://pypi.python.org/pypi/djangocms-site-search
-.. |Build_Status| image:: http://img.shields.io/travis/bigmassa/djangocms-site-search/master.svg
-   :target: https://travis-ci.org/bigmassa/djangocms-site-search
-.. |Coverage_Status| image:: http://img.shields.io/coveralls/bigmassa/djangocms-site-search/master.svg
-   :target: https://coveralls.io/r/bigmassa/djangocms-site-search?branch=master
+.. |Build_Status| image:: https://circleci.com/gh/AccentDesign/djangocms-site-search.svg?style=svg
+   :target: https://circleci.com/gh/AccentDesign/djangocms-site-search
+.. |Coverage_Status| image:: http://img.shields.io/coveralls/AccentDesign/djangocms-site-search/master.svg
+   :target: https://coveralls.io/r/AccentDesign/djangocms-site-search?branch=master
